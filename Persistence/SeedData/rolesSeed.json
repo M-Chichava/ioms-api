@@ -1,0 +1,14 @@
+[
+  {
+    "Name": "Manager",
+    "Description": "Manager"
+  },
+  {
+    "Name": "SystemAdministrator",
+    "Description": "System Administrator"
+  },
+  {
+    "Name": "ClientAssistance",
+    "Description": "Client Assistance"
+  }
+]

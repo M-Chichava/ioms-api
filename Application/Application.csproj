@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Persistence\Persistence.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspose.Cells" Version="22.10.0" />
+        <PackageReference Include="AutoMapper" Version="11.0.1" />
+        <PackageReference Include="CSVFile" Version="3.1.0" />
+        <PackageReference Include="CsvHelper" Version="29.0.0" />
+        <PackageReference Include="FileHelpers" Version="3.5.2" />
+        <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.3" />
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+        <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="20.3.0.49" />
+        <PackageReference Include="Syncfusion.XlsIORenderer.Net.Core" Version="20.3.0.49" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Features\Certifieds\Commands\RequestModels" />
+        <Folder Include="Features\Certifieds\Commands\Validators" />
+        <Folder Include="Features\Certifieds\Queries\Handlers" />
+        <Folder Include="Features\Certifieds\Queries\RequestModels" />
+        <Folder Include="Features\Users\Queries\Validators" />
+        <Folder Include="Interfaces" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Features\Certifieds\Queries\RequestModels\ListRolesQuery.cs" />
+      <Compile Remove="Features\Certifieds\Commands\RequestModels\RemoveRoleCommand.cs" />
+    </ItemGroup>
+
+</Project>
