@@ -29,7 +29,7 @@ namespace Infrastructure.Security
         public async Task<string> CreateToken(AppUser user, List<ApplicationPermission> applicationPermissions)
         {
             if (user == null) throw new ApiException(HttpStatusCode.NotFound, "User is Empty");
-            var userExists = await _context.Users.FirstOrDefaultAsync(x => x.Email == user.Email && !user.Archived);
+            var userExists = await _context.Users.FirstOrDefaultAsync(x => x.Email == user.Email);
             if (userExists == null) throw new ApiException(HttpStatusCode.NotFound, "User not found or is Archived");
             var claims = new List<Claim>
             {

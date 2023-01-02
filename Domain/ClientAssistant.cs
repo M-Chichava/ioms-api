@@ -1,7 +1,9 @@
-﻿namespace Domain
+﻿using System;
+
+namespace Domain
 {
     public class ClientAssistant
     {
-        
+        public Guid Id { get; set; }
     }
 }

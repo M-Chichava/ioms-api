@@ -1,7 +1,9 @@
-﻿namespace Domain
+﻿using System;
+
+namespace Domain
 {
-    public class Administrator
+    public class Administrator : AppUser
     {
-        
+        public Guid Id { get; set; }
     }
 }
