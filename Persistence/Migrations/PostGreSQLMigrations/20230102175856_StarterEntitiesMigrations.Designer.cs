@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Persistence;
@@ -9,9 +10,10 @@ using Persistence;
 namespace Persistence.Migrations.PostGreSQLMigrations
 {
     [DbContext(typeof(DataContextPostGreSql))]
-    partial class DataContextPostGreSqlModelSnapshot : ModelSnapshot
+    [Migration("20230102175856_StarterEntitiesMigrations")]
+    partial class StarterEntitiesMigrations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -216,12 +218,7 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
 
                     b.ToTable("ClientAssistants");
                 });
@@ -392,12 +389,7 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
 
                     b.ToTable("Managers");
                 });
@@ -651,15 +643,6 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                     b.Navigation("ApplicationRole");
                 });
 
-            modelBuilder.Entity("Domain.ClientAssistant", b =>
-                {
-                    b.HasOne("Domain.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserId");
-
-                    b.Navigation("AppUser");
-                });
-
             modelBuilder.Entity("Domain.DepositAccount", b =>
                 {
                     b.HasOne("Domain.Account", "Account")
@@ -718,15 +701,6 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                     b.Navigation("Account");
 
                     b.Navigation("LateInterest");
-                });
-
-            modelBuilder.Entity("Domain.Manager", b =>
-                {
-                    b.HasOne("Domain.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserId");
-
-                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("Domain.PaymentAccount", b =>

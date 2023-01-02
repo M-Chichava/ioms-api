@@ -2,8 +2,9 @@
 
 namespace Domain
 {
-    public class Administrator : AppUser
+    public class Administrator 
     {
         public Guid Id { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }
