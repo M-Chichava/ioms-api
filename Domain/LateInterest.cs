@@ -1,10 +1,9 @@
 ﻿namespace Domain
 {
-    public class Payment
+    public class LateInterest
     {
         public int Id { get; set; }
         public string Description { get; set; }
         public float Amount { get; set; }
-        
     }
 }

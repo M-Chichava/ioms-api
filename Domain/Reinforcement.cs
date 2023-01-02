@@ -1,6 +1,6 @@
 ﻿namespace Domain
 {
-    public class Payment
+    public class Reinforcement
     {
         public int Id { get; set; }
         public string Description { get; set; }
