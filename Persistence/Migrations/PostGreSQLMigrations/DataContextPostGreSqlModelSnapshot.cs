@@ -19,6 +19,83 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+            modelBuilder.Entity("Domain.Account", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<long>("AccountNumber")
+                        .HasColumnType("bigint");
+
+                    b.Property<float>("Balance")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Accounts");
+                });
+
+            modelBuilder.Entity("Domain.AdministrativeCost", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<float>("Amount")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AdministrativeCosts");
+                });
+
+            modelBuilder.Entity("Domain.AdministrativeCostAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int?>("AccountId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("AdministrativeCostId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.HasIndex("AdministrativeCostId");
+
+                    b.ToTable("AdministrativeCostAccounts");
+                });
+
+            modelBuilder.Entity("Domain.Administrator", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Administrators");
+                });
+
             modelBuilder.Entity("Domain.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -29,9 +106,6 @@ namespace Persistence.Migrations.PostGreSQLMigrations
 
                     b.Property<int?>("ApplicationRoleId")
                         .HasColumnType("integer");
-
-                    b.Property<bool>("Archived")
-                        .HasColumnType("boolean");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -150,6 +224,278 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                     b.HasIndex("ApplicationRoleId");
 
                     b.ToTable("ApplicationRolePermissions");
+                });
+
+            modelBuilder.Entity("Domain.ClientAssistant", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("ClientAssistants");
+                });
+
+            modelBuilder.Entity("Domain.Deposit", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<float>("Amount")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Deposits");
+                });
+
+            modelBuilder.Entity("Domain.DepositAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int?>("AccountId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("DepositId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.HasIndex("DepositId");
+
+                    b.ToTable("DepositAccounts");
+                });
+
+            modelBuilder.Entity("Domain.Disbursement", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<float>("Amount")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Disbursements");
+                });
+
+            modelBuilder.Entity("Domain.DisbursementAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int?>("AccountId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("DisbursementId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.HasIndex("DisbursementId");
+
+                    b.ToTable("DisbursementAccounts");
+                });
+
+            modelBuilder.Entity("Domain.Expenditure", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<float>("Amount")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Expenditures");
+                });
+
+            modelBuilder.Entity("Domain.ExpenditureAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int?>("AccountId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("ExpenditureId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.HasIndex("ExpenditureId");
+
+                    b.ToTable("ExpenditureAccounts");
+                });
+
+            modelBuilder.Entity("Domain.LateInterest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<float>("Amount")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LateInterests");
+                });
+
+            modelBuilder.Entity("Domain.LateInterestAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int?>("AccountId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("LateInterestId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.HasIndex("LateInterestId");
+
+                    b.ToTable("LateInterestAccounts");
+                });
+
+            modelBuilder.Entity("Domain.Manager", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Managers");
+                });
+
+            modelBuilder.Entity("Domain.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<float>("Amount")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Payments");
+                });
+
+            modelBuilder.Entity("Domain.PaymentAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int?>("AccountId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("PaymentId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.HasIndex("PaymentId");
+
+                    b.ToTable("PaymentAccounts");
+                });
+
+            modelBuilder.Entity("Domain.Reinforcement", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<float>("Amount")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Reinforcements");
+                });
+
+            modelBuilder.Entity("Domain.ReinforcementAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int?>("AccountId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("ReinforcementId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.HasIndex("ReinforcementId");
+
+                    b.ToTable("ReinforcementAccounts");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -282,6 +628,30 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Domain.AdministrativeCostAccount", b =>
+                {
+                    b.HasOne("Domain.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId");
+
+                    b.HasOne("Domain.AdministrativeCost", "AdministrativeCost")
+                        .WithMany()
+                        .HasForeignKey("AdministrativeCostId");
+
+                    b.Navigation("Account");
+
+                    b.Navigation("AdministrativeCost");
+                });
+
+            modelBuilder.Entity("Domain.Administrator", b =>
+                {
+                    b.HasOne("Domain.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("Domain.AppUser", b =>
                 {
                     b.HasOne("Domain.ApplicationRole", "ApplicationRole")
@@ -304,6 +674,114 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                     b.Navigation("ApplicationPermission");
 
                     b.Navigation("ApplicationRole");
+                });
+
+            modelBuilder.Entity("Domain.ClientAssistant", b =>
+                {
+                    b.HasOne("Domain.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("Domain.DepositAccount", b =>
+                {
+                    b.HasOne("Domain.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId");
+
+                    b.HasOne("Domain.Deposit", "Deposit")
+                        .WithMany()
+                        .HasForeignKey("DepositId");
+
+                    b.Navigation("Account");
+
+                    b.Navigation("Deposit");
+                });
+
+            modelBuilder.Entity("Domain.DisbursementAccount", b =>
+                {
+                    b.HasOne("Domain.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId");
+
+                    b.HasOne("Domain.Disbursement", "Disbursement")
+                        .WithMany()
+                        .HasForeignKey("DisbursementId");
+
+                    b.Navigation("Account");
+
+                    b.Navigation("Disbursement");
+                });
+
+            modelBuilder.Entity("Domain.ExpenditureAccount", b =>
+                {
+                    b.HasOne("Domain.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId");
+
+                    b.HasOne("Domain.Expenditure", "Expenditure")
+                        .WithMany()
+                        .HasForeignKey("ExpenditureId");
+
+                    b.Navigation("Account");
+
+                    b.Navigation("Expenditure");
+                });
+
+            modelBuilder.Entity("Domain.LateInterestAccount", b =>
+                {
+                    b.HasOne("Domain.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId");
+
+                    b.HasOne("Domain.LateInterest", "LateInterest")
+                        .WithMany()
+                        .HasForeignKey("LateInterestId");
+
+                    b.Navigation("Account");
+
+                    b.Navigation("LateInterest");
+                });
+
+            modelBuilder.Entity("Domain.Manager", b =>
+                {
+                    b.HasOne("Domain.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("Domain.PaymentAccount", b =>
+                {
+                    b.HasOne("Domain.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId");
+
+                    b.HasOne("Domain.Payment", "Payment")
+                        .WithMany()
+                        .HasForeignKey("PaymentId");
+
+                    b.Navigation("Account");
+
+                    b.Navigation("Payment");
+                });
+
+            modelBuilder.Entity("Domain.ReinforcementAccount", b =>
+                {
+                    b.HasOne("Domain.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId");
+
+                    b.HasOne("Domain.Reinforcement", "Reinforcement")
+                        .WithMany()
+                        .HasForeignKey("ReinforcementId");
+
+                    b.Navigation("Account");
+
+                    b.Navigation("Reinforcement");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

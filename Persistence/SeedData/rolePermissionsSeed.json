@@ -1,6 +1,6 @@
 [
   {
-    "Role": "SystemAdministrator",
+    "Role": "Administrator",
     "Permissions": [
       "AddRole",
       "ListRoles",
@@ -11,7 +11,60 @@
       "ListRolePermissions",
       "RemoveRolePermissions",
       "CreateUser",
-      "ListUsers"
+      "ListUsers",
+      "EditUser",
+      "RemoveUser"
+    ]
+  },
+  {
+    "Role": "Manager",
+    "Permissions": [
+      "ListPayments",
+      "EditPayment",
+      "RemovePayment",
+      "ListReinforcements",
+      "EditReinforcement",
+      "RemoveReinforcement",
+      "ListLateInterests",
+      "EditLateInterest",
+      "RemoveLateInterest",
+      "ListExpenditures",
+      "EditExpenditure",
+      "RemoveExpenditure",
+      "ListDisbursements",
+      "EditDisbursement",
+      "RemoveDisbursement",
+      "ListDeposits",
+      "EditDeposit",
+      "RemoveDeposit",
+      "AddAccount",
+      "ListAccounts",
+      "EditAccount",
+      "RemoveAccount"
+    ]
+  } ,
+  {
+    "Role": "Assistant",
+    "Permissions": [
+      "AddPayment",
+      "ListPayments",
+      "EditPayment", 
+      "AddReinforcement",
+      "ListReinforcements",
+      "EditReinforcement", 
+      "AddLateInterest",
+      "ListLateInterests",
+      "EditLateInterest", 
+      "AddExpenditure",
+      "ListExpenditures",
+      "EditExpenditure", 
+      "AddDisbursement",
+      "ListDisbursements",
+      "EditDisbursement", 
+      "AddDeposit",
+      "ListDeposits",
+      "EditDeposit", 
+      "ListAccounts"
     ]
   } 
 ]
