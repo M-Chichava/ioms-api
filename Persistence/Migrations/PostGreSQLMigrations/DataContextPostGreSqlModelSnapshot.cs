@@ -80,6 +80,22 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                     b.ToTable("AdministrativeCostAccounts");
                 });
 
+            modelBuilder.Entity("Domain.Administrator", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Administrators");
+                });
+
             modelBuilder.Entity("Domain.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -625,6 +641,15 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                     b.Navigation("Account");
 
                     b.Navigation("AdministrativeCost");
+                });
+
+            modelBuilder.Entity("Domain.Administrator", b =>
+                {
+                    b.HasOne("Domain.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("Domain.AppUser", b =>

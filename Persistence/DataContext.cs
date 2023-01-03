@@ -14,6 +14,7 @@ namespace Persistence
         public DbSet<ApplicationPermission> ApplicationPermissions { get; set; }
         public DbSet<ApplicationRolePermission> ApplicationRolePermissions { get; set; }
         public DbSet<Manager> Managers { get; set; }
+        public DbSet<Administrator> Administrators { get; set; }
         public DbSet<ClientAssistant> ClientAssistants { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<AdministrativeCost> AdministrativeCosts { get; set; }

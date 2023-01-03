@@ -37,6 +37,126 @@
   },
   {
     "Name": "ListUsers",
-    "Description": "ListUsers"
+    "Description": "List Users"
+  },
+  {
+    "Name": "RemoveUser",
+    "Description": "Remove User"
+  },
+  {
+    "Name": "EditUser",
+    "Description": "Edit User"
+  },
+  {
+    "Name": "ListPayments",
+    "Description": "List Payments"
+  },
+  {
+    "Name": "RemovePayment",
+    "Description": "Remove Payment"
+  },
+  {
+    "Name": "ListReinforcements",
+    "Description": "List Reinforcements"
+  },
+  {
+    "Name": "RemoveReinforcement",
+    "Description": "Remove Reinforcement"
+  },
+  {
+    "Name": "ListLateInterests",
+    "Description": "List Late Interests"
+  },
+  {
+    "Name": "RemoveLateInterest",
+    "Description": "Remove Late Interest"
+  },
+  {
+    "Name": "EditExpenditure",
+    "Description": "Edit Expenditure"
+  },
+  {
+    "Name": "RemoveExpenditure",
+    "Description": "Remove Expenditure"
+  },
+  {
+    "Name": "ListDisbursements",
+    "Description": "List Disbursements"
+  },
+  {
+    "Name": "EditDisbursement",
+    "Description": "Edit Disbursement"
+  },
+  {
+    "Name": "RemoveDisbursement",
+    "Description": "Remove Disbursement"
+  },
+  {
+    "Name": "ListDeposits",
+    "Description": "List Deposits"
+  },
+  {
+    "Name": "RemoveDeposit",
+    "Description": "Remove Deposit"
+  },
+  {
+    "Name": "AddAccount",
+    "Description": "Add Account"
+  },
+  {
+    "Name": "ListAccounts",
+    "Description": "List Accounts"
+  },
+  {
+    "Name": "EditAccount",
+    "Description": "Edit Account"
+  },
+  {
+    "Name": "RemoveAccount",
+    "Description": "Remove Account"
+  },
+  {
+    "Name": "AddPayment",
+    "Description": "Add Payment"
+  },
+  {
+    "Name": "EditPayment",
+    "Description": "Edit Payment"
+  },
+  {
+    "Name": "AddReinforcement",
+    "Description": "Add Reinforcement"
+  },
+  {
+    "Name": "EditReinforcement",
+    "Description": "Edit Reinforcement"
+  },
+  {
+    "Name": "AddLateInterest",
+    "Description": "Add Late Interest"
+  },
+  {
+    "Name": "EditLateInterest",
+    "Description": "Edit Late Interest"
+  },
+  {
+    "Name": "AddExpenditure",
+    "Description": "Add Expenditure"
+  },
+  {
+    "Name": "ListExpenditures",
+    "Description": "List Expenditures"
+  },
+  {
+    "Name": "AddDisbursement",
+    "Description": "Add Disbursement"
+  },
+  {
+    "Name": "AddDeposit",
+    "Description": "Add Deposit"
+  },
+  {
+    "Name": "EditDeposit",
+    "Description": "Edit Deposit"
   }
 ]

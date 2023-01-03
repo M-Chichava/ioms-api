@@ -10,8 +10,8 @@ using Persistence;
 namespace Persistence.Migrations.PostGreSQLMigrations
 {
     [DbContext(typeof(DataContextPostGreSql))]
-    [Migration("20230102183321_UsersAppMigrations")]
-    partial class UsersAppMigrations
+    [Migration("20230103215947_UsersPermissionsAppsMigrations")]
+    partial class UsersPermissionsAppsMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -80,6 +80,22 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                     b.HasIndex("AdministrativeCostId");
 
                     b.ToTable("AdministrativeCostAccounts");
+                });
+
+            modelBuilder.Entity("Domain.Administrator", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Administrators");
                 });
 
             modelBuilder.Entity("Domain.AppUser", b =>
@@ -627,6 +643,15 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                     b.Navigation("Account");
 
                     b.Navigation("AdministrativeCost");
+                });
+
+            modelBuilder.Entity("Domain.Administrator", b =>
+                {
+                    b.HasOne("Domain.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("Domain.AppUser", b =>

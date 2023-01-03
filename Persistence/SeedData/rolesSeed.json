@@ -4,11 +4,11 @@
     "Description": "Manager"
   },
   {
-    "Name": "SystemAdministrator",
-    "Description": "System Administrator"
+    "Name": "Administrator",
+    "Description": "Administrator"
   },
   {
-    "Name": "ClientAssistance",
-    "Description": "Client Assistance"
+    "Name": "Assistant",
+    "Description": "Assistant"
   }
 ]

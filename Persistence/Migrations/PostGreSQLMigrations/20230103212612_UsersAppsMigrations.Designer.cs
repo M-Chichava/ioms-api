@@ -10,8 +10,8 @@ using Persistence;
 namespace Persistence.Migrations.PostGreSQLMigrations
 {
     [DbContext(typeof(DataContextPostGreSql))]
-    [Migration("20230102175856_StarterEntitiesMigrations")]
-    partial class StarterEntitiesMigrations
+    [Migration("20230103212612_UsersAppsMigrations")]
+    partial class UsersAppsMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -80,6 +80,22 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                     b.HasIndex("AdministrativeCostId");
 
                     b.ToTable("AdministrativeCostAccounts");
+                });
+
+            modelBuilder.Entity("Domain.Administrator", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Administrators");
                 });
 
             modelBuilder.Entity("Domain.AppUser", b =>
@@ -218,7 +234,12 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
 
                     b.ToTable("ClientAssistants");
                 });
@@ -389,7 +410,12 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
 
                     b.ToTable("Managers");
                 });
@@ -619,6 +645,15 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                     b.Navigation("AdministrativeCost");
                 });
 
+            modelBuilder.Entity("Domain.Administrator", b =>
+                {
+                    b.HasOne("Domain.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("Domain.AppUser", b =>
                 {
                     b.HasOne("Domain.ApplicationRole", "ApplicationRole")
@@ -641,6 +676,15 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                     b.Navigation("ApplicationPermission");
 
                     b.Navigation("ApplicationRole");
+                });
+
+            modelBuilder.Entity("Domain.ClientAssistant", b =>
+                {
+                    b.HasOne("Domain.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("Domain.DepositAccount", b =>
@@ -701,6 +745,15 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                     b.Navigation("Account");
 
                     b.Navigation("LateInterest");
+                });
+
+            modelBuilder.Entity("Domain.Manager", b =>
+                {
+                    b.HasOne("Domain.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+
+                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("Domain.PaymentAccount", b =>
