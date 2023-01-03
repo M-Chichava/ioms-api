@@ -21,11 +21,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Features\Certifieds\Commands\RequestModels" />
-        <Folder Include="Features\Certifieds\Commands\Validators" />
-        <Folder Include="Features\Certifieds\Queries\Handlers" />
-        <Folder Include="Features\Certifieds\Queries\RequestModels" />
-        <Folder Include="Features\Users\Queries\Validators" />
         <Folder Include="Interfaces" />
     </ItemGroup>
 
