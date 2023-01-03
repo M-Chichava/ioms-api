@@ -21,6 +21,16 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Folder Include="Features\Account\Command\Handlers" />
+        <Folder Include="Features\Account\Command\RequestModels" />
+        <Folder Include="Features\Account\Command\Validators" />
+        <Folder Include="Features\Account\Queries\Handlers" />
+        <Folder Include="Features\Account\Queries\RequestModels" />
+        <Folder Include="Features\AdministrativeCost\Command\Handlers" />
+        <Folder Include="Features\AdministrativeCost\Command\RequestModels" />
+        <Folder Include="Features\AdministrativeCost\Command\Validators" />
+        <Folder Include="Features\AdministrativeCost\Queries\Handlers" />
+        <Folder Include="Features\AdministrativeCost\Queries\RequestModels" />
         <Folder Include="Interfaces" />
     </ItemGroup>
 
