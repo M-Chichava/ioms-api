@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "P:\\Azure\\IOMS\\ioms\\api\\API.csproj": {}
+    "P:\\Azure\\IOMS\\ioms\\API\\API.csproj": {}
   },
   "projects": {
-    "P:\\Azure\\IOMS\\ioms\\api\\API.csproj": {
+    "P:\\Azure\\IOMS\\ioms\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "P:\\Azure\\IOMS\\ioms\\api\\API.csproj",
+        "projectUniqueName": "P:\\Azure\\IOMS\\ioms\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "P:\\Azure\\IOMS\\ioms\\api\\API.csproj",
+        "projectPath": "P:\\Azure\\IOMS\\ioms\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Marcos.Chichava\\.nuget\\packages\\",
-        "outputPath": "P:\\Azure\\IOMS\\ioms\\api\\obj\\",
+        "outputPath": "P:\\Azure\\IOMS\\ioms\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Marcos.Chichava\\AppData\\Roaming\\NuGet\\NuGet.Config"
