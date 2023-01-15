@@ -19,27 +19,6 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-            modelBuilder.Entity("Domain.Account", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<long>("AccountNumber")
-                        .HasColumnType("bigint");
-
-                    b.Property<float>("Balance")
-                        .HasColumnType("real");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Accounts");
-                });
-
             modelBuilder.Entity("Domain.AdministrativeCost", b =>
                 {
                     b.Property<int>("Id")
@@ -65,17 +44,23 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("AccountId")
-                        .HasColumnType("integer");
+                    b.Property<string>("AdministrativeCostDate")
+                        .HasColumnType("text");
 
                     b.Property<int?>("AdministrativeCostId")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("BankAccountId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("NAdministrativeCost")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AccountId");
-
                     b.HasIndex("AdministrativeCostId");
+
+                    b.HasIndex("BankAccountId");
 
                     b.ToTable("AdministrativeCostAccounts");
                 });
@@ -226,6 +211,27 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                     b.ToTable("ApplicationRolePermissions");
                 });
 
+            modelBuilder.Entity("Domain.BankAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<long>("AccountNumber")
+                        .HasColumnType("bigint");
+
+                    b.Property<float>("Balance")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BankAccount");
+                });
+
             modelBuilder.Entity("Domain.ClientAssistant", b =>
                 {
                     b.Property<Guid>("Id")
@@ -267,15 +273,21 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("AccountId")
+                    b.Property<int?>("BankAccountId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("DepositDate")
+                        .HasColumnType("text");
 
                     b.Property<int?>("DepositId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("NDeposit")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AccountId");
+                    b.HasIndex("BankAccountId");
 
                     b.HasIndex("DepositId");
 
@@ -307,15 +319,21 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("AccountId")
+                    b.Property<int?>("BankAccountId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("DisbursementDate")
+                        .HasColumnType("text");
 
                     b.Property<int?>("DisbursementId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("NDisbursement")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AccountId");
+                    b.HasIndex("BankAccountId");
 
                     b.HasIndex("DisbursementId");
 
@@ -347,15 +365,21 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("AccountId")
+                    b.Property<int?>("BankAccountId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("ExpenditureDate")
+                        .HasColumnType("text");
 
                     b.Property<int?>("ExpenditureId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("NExpenditure")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AccountId");
+                    b.HasIndex("BankAccountId");
 
                     b.HasIndex("ExpenditureId");
 
@@ -387,15 +411,21 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("AccountId")
+                    b.Property<int?>("BankAccountId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("LateInterestDate")
+                        .HasColumnType("text");
 
                     b.Property<int?>("LateInterestId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("NLateInterest")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AccountId");
+                    b.HasIndex("BankAccountId");
 
                     b.HasIndex("LateInterestId");
 
@@ -443,15 +473,21 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("AccountId")
+                    b.Property<int?>("BankAccountId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("NPayment")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PaymentDate")
+                        .HasColumnType("text");
 
                     b.Property<int?>("PaymentId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AccountId");
+                    b.HasIndex("BankAccountId");
 
                     b.HasIndex("PaymentId");
 
@@ -483,15 +519,21 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("AccountId")
+                    b.Property<int?>("BankAccountId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("NReinforcement")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ReinforcementDate")
+                        .HasColumnType("text");
 
                     b.Property<int?>("ReinforcementId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AccountId");
+                    b.HasIndex("BankAccountId");
 
                     b.HasIndex("ReinforcementId");
 
@@ -630,17 +672,17 @@ namespace Persistence.Migrations.PostGreSQLMigrations
 
             modelBuilder.Entity("Domain.AdministrativeCostAccount", b =>
                 {
-                    b.HasOne("Domain.Account", "Account")
-                        .WithMany()
-                        .HasForeignKey("AccountId");
-
                     b.HasOne("Domain.AdministrativeCost", "AdministrativeCost")
                         .WithMany()
                         .HasForeignKey("AdministrativeCostId");
 
-                    b.Navigation("Account");
+                    b.HasOne("Domain.BankAccount", "BankAccount")
+                        .WithMany()
+                        .HasForeignKey("BankAccountId");
 
                     b.Navigation("AdministrativeCost");
+
+                    b.Navigation("BankAccount");
                 });
 
             modelBuilder.Entity("Domain.Administrator", b =>
@@ -687,60 +729,60 @@ namespace Persistence.Migrations.PostGreSQLMigrations
 
             modelBuilder.Entity("Domain.DepositAccount", b =>
                 {
-                    b.HasOne("Domain.Account", "Account")
+                    b.HasOne("Domain.BankAccount", "BankAccount")
                         .WithMany()
-                        .HasForeignKey("AccountId");
+                        .HasForeignKey("BankAccountId");
 
                     b.HasOne("Domain.Deposit", "Deposit")
                         .WithMany()
                         .HasForeignKey("DepositId");
 
-                    b.Navigation("Account");
+                    b.Navigation("BankAccount");
 
                     b.Navigation("Deposit");
                 });
 
             modelBuilder.Entity("Domain.DisbursementAccount", b =>
                 {
-                    b.HasOne("Domain.Account", "Account")
+                    b.HasOne("Domain.BankAccount", "BankAccount")
                         .WithMany()
-                        .HasForeignKey("AccountId");
+                        .HasForeignKey("BankAccountId");
 
                     b.HasOne("Domain.Disbursement", "Disbursement")
                         .WithMany()
                         .HasForeignKey("DisbursementId");
 
-                    b.Navigation("Account");
+                    b.Navigation("BankAccount");
 
                     b.Navigation("Disbursement");
                 });
 
             modelBuilder.Entity("Domain.ExpenditureAccount", b =>
                 {
-                    b.HasOne("Domain.Account", "Account")
+                    b.HasOne("Domain.BankAccount", "BankAccount")
                         .WithMany()
-                        .HasForeignKey("AccountId");
+                        .HasForeignKey("BankAccountId");
 
                     b.HasOne("Domain.Expenditure", "Expenditure")
                         .WithMany()
                         .HasForeignKey("ExpenditureId");
 
-                    b.Navigation("Account");
+                    b.Navigation("BankAccount");
 
                     b.Navigation("Expenditure");
                 });
 
             modelBuilder.Entity("Domain.LateInterestAccount", b =>
                 {
-                    b.HasOne("Domain.Account", "Account")
+                    b.HasOne("Domain.BankAccount", "BankAccount")
                         .WithMany()
-                        .HasForeignKey("AccountId");
+                        .HasForeignKey("BankAccountId");
 
                     b.HasOne("Domain.LateInterest", "LateInterest")
                         .WithMany()
                         .HasForeignKey("LateInterestId");
 
-                    b.Navigation("Account");
+                    b.Navigation("BankAccount");
 
                     b.Navigation("LateInterest");
                 });
@@ -756,30 +798,30 @@ namespace Persistence.Migrations.PostGreSQLMigrations
 
             modelBuilder.Entity("Domain.PaymentAccount", b =>
                 {
-                    b.HasOne("Domain.Account", "Account")
+                    b.HasOne("Domain.BankAccount", "BankAccount")
                         .WithMany()
-                        .HasForeignKey("AccountId");
+                        .HasForeignKey("BankAccountId");
 
                     b.HasOne("Domain.Payment", "Payment")
                         .WithMany()
                         .HasForeignKey("PaymentId");
 
-                    b.Navigation("Account");
+                    b.Navigation("BankAccount");
 
                     b.Navigation("Payment");
                 });
 
             modelBuilder.Entity("Domain.ReinforcementAccount", b =>
                 {
-                    b.HasOne("Domain.Account", "Account")
+                    b.HasOne("Domain.BankAccount", "BankAccount")
                         .WithMany()
-                        .HasForeignKey("AccountId");
+                        .HasForeignKey("BankAccountId");
 
                     b.HasOne("Domain.Reinforcement", "Reinforcement")
                         .WithMany()
                         .HasForeignKey("ReinforcementId");
 
-                    b.Navigation("Account");
+                    b.Navigation("BankAccount");
 
                     b.Navigation("Reinforcement");
                 });

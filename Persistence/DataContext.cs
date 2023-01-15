@@ -16,7 +16,7 @@ namespace Persistence
         public DbSet<Manager> Managers { get; set; }
         public DbSet<Administrator> Administrators { get; set; }
         public DbSet<ClientAssistant> ClientAssistants { get; set; }
-        public DbSet<Account> Accounts { get; set; }
+        public DbSet<BankAccount> BankAccount { get; set; }
         public DbSet<AdministrativeCost> AdministrativeCosts { get; set; }
         public DbSet<AdministrativeCostAccount> AdministrativeCostAccounts { get; set; }
         public DbSet<Deposit> Deposits { get; set; }

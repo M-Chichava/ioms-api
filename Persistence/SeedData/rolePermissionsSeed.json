@@ -21,6 +21,12 @@
     "Permissions": [
       "ListPayments",
       "EditPayment",
+      "AddPayment",
+      "AddReinforcement",
+      "AddLateInterest",
+      "AddExpenditure",
+      "AddDisbursement",
+      "AddDeposit",
       "RemovePayment",
       "ListReinforcements",
       "EditReinforcement",
@@ -48,22 +54,16 @@
     "Permissions": [
       "AddPayment",
       "ListPayments",
-      "EditPayment", 
       "AddReinforcement",
       "ListReinforcements",
-      "EditReinforcement", 
       "AddLateInterest",
       "ListLateInterests",
-      "EditLateInterest", 
       "AddExpenditure",
       "ListExpenditures",
-      "EditExpenditure", 
       "AddDisbursement",
       "ListDisbursements",
-      "EditDisbursement", 
       "AddDeposit",
       "ListDeposits",
-      "EditDeposit", 
       "ListAccounts"
     ]
   } 

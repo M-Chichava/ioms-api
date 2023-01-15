@@ -1,6 +1,6 @@
 ﻿namespace Domain
 {
-    public class Account
+    public class BankAccount
     {
         public int Id { get; set; }
         public string Name { get; set; }

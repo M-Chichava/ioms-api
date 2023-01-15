@@ -9,6 +9,7 @@ namespace Application.Helpers
         public MappingProfiles()
         {
             CreateMap<AppUser, LoginDto>();
+            CreateMap<BankAccount, BankAccountDto>();
             CreateMap<AppUser, UserDto>()
                 .ForMember(e => e.ApplicationRole, o =>
                     o.MapFrom(s => s.ApplicationRole.Description));
