@@ -23,19 +23,12 @@ namespace API.Extensions
             services.Configure<DatabaseSettings>(databaseSection);
             var databaseSettings = databaseSection.Get<DatabaseSettings>();
 
-            switch (databaseSettings.DatabaseType)
-            {
-                case "SqlServer":
-                    services.AddDbContext<DataContext, DataContextSqlServer>(ConfigureSqlServer);
-                    break;
-                case  "PostGreSql":
-                    services.AddDbContext<DataContext, DataContextPostGreSql>(ConfigurePostGreSql);
-                    break;
-                default:
-                    Console.WriteLine("Error, Data Type not found");
-                    break;
+            if (databaseSettings.DatabaseType == "PostGreSql")
+            { 
+                services.AddDbContext<DataContext, DataContextPostGreSql>(ConfigurePostGreSql);
             }
-            
+            else
+                Console.WriteLine("Error, Data Type not found");
             return services;
         }
 
@@ -46,12 +39,5 @@ namespace API.Extensions
             options.EnableSensitiveDataLogging();
         }
 
-        private static void ConfigureSqlServer(DbContextOptionsBuilder options)
-        {
-            string sqlServerConnectionString = Configuration.GetConnectionString("SqlServerConnectionString");
-            options.UseSqlServer(sqlServerConnectionString);
-            options.EnableSensitiveDataLogging();
-        }
-        
     }
 }

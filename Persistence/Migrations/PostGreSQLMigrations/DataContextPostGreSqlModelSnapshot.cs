@@ -448,6 +448,52 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                     b.ToTable("Managers");
                 });
 
+            modelBuilder.Entity("Domain.Outgoing", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<float>("Amount")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Outgoings");
+                });
+
+            modelBuilder.Entity("Domain.OutgoingAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int?>("BankAccountId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("NOutgoing")
+                        .HasColumnType("text");
+
+                    b.Property<string>("OutgoingDate")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("OutgoingId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BankAccountId");
+
+                    b.HasIndex("OutgoingId");
+
+                    b.ToTable("OutgoingAccounts");
+                });
+
             modelBuilder.Entity("Domain.Payment", b =>
                 {
                     b.Property<int>("Id")
@@ -794,6 +840,21 @@ namespace Persistence.Migrations.PostGreSQLMigrations
                         .HasForeignKey("AppUserId");
 
                     b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("Domain.OutgoingAccount", b =>
+                {
+                    b.HasOne("Domain.BankAccount", "BankAccount")
+                        .WithMany()
+                        .HasForeignKey("BankAccountId");
+
+                    b.HasOne("Domain.Outgoing", "Outgoing")
+                        .WithMany()
+                        .HasForeignKey("OutgoingId");
+
+                    b.Navigation("BankAccount");
+
+                    b.Navigation("Outgoing");
                 });
 
             modelBuilder.Entity("Domain.PaymentAccount", b =>

@@ -27,6 +27,8 @@ namespace Persistence
         public DbSet<ExpenditureAccount> ExpenditureAccounts { get; set; }
         public DbSet<LateInterest> LateInterests { get; set; }
         public DbSet<LateInterestAccount> LateInterestAccounts { get; set; }
+        public DbSet<OutgoingAccount> OutgoingAccounts { get; set; }
+        public DbSet<Outgoing> Outgoings { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<PaymentAccount> PaymentAccounts { get; set; }
         public DbSet<Reinforcement> Reinforcements { get; set; }
