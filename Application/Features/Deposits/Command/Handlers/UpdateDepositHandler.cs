@@ -22,35 +22,35 @@ namespace Application.Features.Deposits.Command.Handlers
         public async Task<DepositAccount> Handle(UpdateDepositCommand request, CancellationToken cancellationToken)
         {
 
-            var DepositAccountSpecification = new DepositAccountSpecification(request.Id);
-            var DepositAccount = await _unitOfWork.Repository<DepositAccount>().GetEntityWithSpecAsync(DepositAccountSpecification);
-            var Deposit = DepositAccount.Deposit;
+            var depositAccountSpecification = new DepositAccountSpecification(request.Id);
+            var depositAccount = await _unitOfWork.Repository<DepositAccount>().GetEntityWithSpecAsync(depositAccountSpecification);
+            var deposit = depositAccount.Deposit;
 
-            var oldBankAccountSpecification = new BankAccountSpecification(DepositAccount.BankAccount.AccountNumber);
+            var oldBankAccountSpecification = new BankAccountSpecification(depositAccount.BankAccount.AccountNumber);
             var oldbankAccount = await _unitOfWork.Repository<BankAccount>().GetEntityWithSpecAsync(oldBankAccountSpecification);
             
             if (request.AccountNumber > 0 && request.AccountNumber.ToString().Length >= 8)
             {
-                DepositAccount.BankAccount.AccountNumber = request.AccountNumber;
+                depositAccount.BankAccount.AccountNumber = request.AccountNumber;
                 
-                oldbankAccount.Balance -= Deposit.Amount;
+                oldbankAccount.Balance -= deposit.Amount;
 
             }
             
             if (request.Description is not null)
             {
-                Deposit.Description = request.Description;
+                deposit.Description = request.Description;
             }
             
-            DepositAccount.BankAccount.Balance += request.Amount + Deposit.Amount;
+            depositAccount.BankAccount.Balance += request.Amount + deposit.Amount;
             if (request.Amount > 0)
             {
-                Deposit.Amount = request.Amount;
+                deposit.Amount = request.Amount;
             }
                 
             
-            _unitOfWork.Repository<Deposit>().Update(Deposit);
-            _unitOfWork.Repository<DepositAccount>().Update(DepositAccount);
+            _unitOfWork.Repository<Deposit>().Update(deposit);
+            _unitOfWork.Repository<DepositAccount>().Update(depositAccount);
 
             var response = await _unitOfWork.Complete();
 
@@ -59,7 +59,7 @@ namespace Application.Features.Deposits.Command.Handlers
                 throw new ApiException(HttpStatusCode.InternalServerError, "Failed to Update Deposit");
             }
 
-            return DepositAccount;
+            return depositAccount;
         }
     }
 }
