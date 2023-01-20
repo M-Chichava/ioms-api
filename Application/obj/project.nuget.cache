@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QOftJ0nZSSpuKinK/B/DSK2C7oiSltR4IX+7L2CiPleSsxbzUD5R2BBFxgPgon4EREeA4nMpsnfwKTuW4N37aQ==",
+  "dgSpecHash": "3T1d/i2XqQpRO8iTXBkXL3DZRw7KD6IcTpZZaD+uMAJ+q1IkQjo3E08Pe7Il95UR3nIlryDPbDTJM/RX/7UbwQ==",
   "success": true,
-  "projectFilePath": "P:\\Azure\\IOMS\\ioms\\Application\\Application.csproj",
+  "projectFilePath": "P:\\Azure\\IOMS\\ioms-api\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marcos.Chichava\\.nuget\\packages\\aspose.cells\\22.10.0\\aspose.cells.22.10.0.nupkg.sha512",
     "C:\\Users\\Marcos.Chichava\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",

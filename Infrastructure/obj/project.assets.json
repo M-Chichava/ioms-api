@@ -8469,11 +8469,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "P:\\Azure\\IOMS\\ioms\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "P:\\Azure\\IOMS\\ioms-api\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "P:\\Azure\\IOMS\\ioms\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "P:\\Azure\\IOMS\\ioms-api\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Marcos.Chichava\\.nuget\\packages\\",
-      "outputPath": "P:\\Azure\\IOMS\\ioms\\Infrastructure\\obj\\",
+      "outputPath": "P:\\Azure\\IOMS\\ioms-api\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Marcos.Chichava\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -8488,11 +8488,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "P:\\Azure\\IOMS\\ioms\\Application\\Application.csproj": {
-              "projectPath": "P:\\Azure\\IOMS\\ioms\\Application\\Application.csproj"
+            "P:\\Azure\\IOMS\\ioms-api\\Application\\Application.csproj": {
+              "projectPath": "P:\\Azure\\IOMS\\ioms-api\\Application\\Application.csproj"
             },
-            "P:\\Azure\\IOMS\\ioms\\Persistence\\Persistence.csproj": {
-              "projectPath": "P:\\Azure\\IOMS\\ioms\\Persistence\\Persistence.csproj"
+            "P:\\Azure\\IOMS\\ioms-api\\Persistence\\Persistence.csproj": {
+              "projectPath": "P:\\Azure\\IOMS\\ioms-api\\Persistence\\Persistence.csproj"
             }
           }
         }

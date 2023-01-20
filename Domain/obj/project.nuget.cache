@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "H4jTDdmV9fr8qz+jAqzs52jShCs/2ZlhriFkj/ehgUqjADS+37viWOh/f3JXai9Eo1SX91a0DSP0+yIGEQl4pg==",
+  "dgSpecHash": "lSfw8eKrHb6a2dNiMRKPrqHga5hmG4YAbr65LAMfjGsFnicKD1F/SYjoJ0fVpEgtbHHxgQ5mkbdfyALyMDZMdg==",
   "success": true,
-  "projectFilePath": "P:\\Azure\\IOMS\\ioms\\Domain\\Domain.csproj",
+  "projectFilePath": "P:\\Azure\\IOMS\\ioms-api\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marcos.Chichava\\.nuget\\packages\\filehelpers\\3.5.2\\filehelpers.3.5.2.nupkg.sha512",
     "C:\\Users\\Marcos.Chichava\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

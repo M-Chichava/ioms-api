@@ -1555,11 +1555,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "P:\\Azure\\IOMS\\ioms\\Domain\\Domain.csproj",
+      "projectUniqueName": "P:\\Azure\\IOMS\\ioms-api\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "P:\\Azure\\IOMS\\ioms\\Domain\\Domain.csproj",
+      "projectPath": "P:\\Azure\\IOMS\\ioms-api\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\Marcos.Chichava\\.nuget\\packages\\",
-      "outputPath": "P:\\Azure\\IOMS\\ioms\\Domain\\obj\\",
+      "outputPath": "P:\\Azure\\IOMS\\ioms-api\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Marcos.Chichava\\AppData\\Roaming\\NuGet\\NuGet.Config"
