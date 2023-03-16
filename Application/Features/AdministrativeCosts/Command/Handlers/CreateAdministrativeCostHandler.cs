@@ -37,7 +37,7 @@ namespace Application.Features.AdministrativeCosts.Command.Handlers
             var administrativeCostDate = administrativeCostDateTime.ToString("yyyy-MM-dd hh:mm:ss");
             var auxNumber = new Random().Next(1000, 9999);
             
-            var nAdministrativeCost = "PYT" + administrativeCostDateTime.Year + ""+ administrativeCostDateTime.Month+""+administrativeCostDateTime.Day+""+auxNumber;
+            var nAdministrativeCost = "ADC" + administrativeCostDateTime.Year + ""+ administrativeCostDateTime.Month+""+administrativeCostDateTime.Day+""+auxNumber;
 
             
             var administrativeCost = new AdministrativeCost

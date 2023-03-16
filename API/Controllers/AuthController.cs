@@ -8,9 +8,15 @@ namespace API.Controllers
 {
     public class AuthController : BaseController
     {
-        [HttpPost]
+        [HttpPost("login")]
         [AllowAnonymous]
         public async Task<ActionResult<LoginDto>> Login(LoginCommand command)
+        {
+            return await Mediator.Send(command);
+        }
+
+        [HttpPost("refreshToken")]
+        public async Task<ActionResult<LoginDto>> RefreshToken(RefreshTokenCommand command)
         {
             return await Mediator.Send(command);
         }

@@ -10,20 +10,20 @@ namespace API.Controllers
 {
     public class OutgoingsController : BaseController
     {
-        [HttpPost]
+        [HttpPost("add")]
         [Authorize(Roles = "AddOutgoing")]
         public async Task<ActionResult<OutgoingAccount>> AddOutgoingAccount(CreateOutgoingCommand command)
         {
             return await Mediator.Send(command);
         }
-        [HttpGet]
+        [HttpGet("list")]
         [Authorize(Roles = "ListOutgoings")]
         public async Task<IReadOnlyList<OutgoingAccount>> ListOutgoings()
         {
             return await Mediator.Send(new ListAllOutgoingsQuery());
         } 
         
-        [HttpGet("{id}")]
+        [HttpGet("get/{id}")]
         [Authorize(Roles = "ListOutgoings")]
         public async Task<ActionResult<OutgoingAccount>> GetOutgoing(string id)
         {

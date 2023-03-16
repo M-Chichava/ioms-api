@@ -10,20 +10,20 @@ namespace API.Controllers
 {
     public class LateInterestsController : BaseController
     {
-        [HttpPost]
+        [HttpPost("add")]
         [Authorize(Roles = "AddLateInterest")]
         public async Task<ActionResult<LateInterestAccount>> AddLateInterestAccount(CreateLateInterestCommand command)
         {
             return await Mediator.Send(command);
         }
-        [HttpGet]
+        [HttpGet("list")]
         [Authorize(Roles = "ListLateInterests")]
         public async Task<IReadOnlyList<LateInterestAccount>> ListLateInterests()
         {
             return await Mediator.Send(new ListAllLateInterestsQuery());
         } 
         
-        [HttpGet("{id}")]
+        [HttpGet("get/{id}")]
         [Authorize(Roles = "ListLateInterests")]
         public async Task<ActionResult<LateInterestAccount>> GetLateInterest(string id)
         {

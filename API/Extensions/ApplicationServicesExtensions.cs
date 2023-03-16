@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Application.DTOs;
 using Application.Errors;
+using Application.Helpers;
 using Application.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Security;
@@ -14,6 +15,7 @@ namespace API.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IJwtGenerator, JwtGenerator>();
+            services.AddScoped<ReportMiddleware>();
             services.AddScoped<IUserAccessor, UserAccessor>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();

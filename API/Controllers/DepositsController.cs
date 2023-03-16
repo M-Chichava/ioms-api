@@ -10,20 +10,20 @@ namespace API.Controllers
 {
     public class DepositsController : BaseController
     {
-        [HttpPost]
+        [HttpPost("add")]
         [Authorize(Roles = "AddDeposit")]
         public async Task<ActionResult<DepositAccount>> AddDepositAccount(CreateDepositCommand command)
         {
             return await Mediator.Send(command);
         }
-        [HttpGet]
+        [HttpGet("list")]
         [Authorize(Roles = "ListDeposits")]
         public async Task<IReadOnlyList<DepositAccount>> ListDeposits()
         {
             return await Mediator.Send(new ListAllDepositsQuery());
         } 
         
-        [HttpGet("{id}")]
+        [HttpGet("get/{id}")]
         [Authorize(Roles = "ListDeposits")]
         public async Task<ActionResult<DepositAccount>> GetDeposit(string id)
         {

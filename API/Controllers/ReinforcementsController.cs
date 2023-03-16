@@ -10,20 +10,20 @@ namespace API.Controllers
 {
     public class ReinforcementsController : BaseController
     {
-        [HttpPost]
+        [HttpPost("add")]
         [Authorize(Roles = "AddReinforcement")]
         public async Task<ActionResult<ReinforcementAccount>> AddReinforcementAccount(CreateReinforcementCommand command)
         {
             return await Mediator.Send(command);
         }
-        [HttpGet]
+        [HttpGet("list")]
         [Authorize(Roles = "ListReinforcements")]
         public async Task<IReadOnlyList<ReinforcementAccount>> ListReinforcements()
         {
             return await Mediator.Send(new ListAllReinforcementsQuery());
         } 
         
-        [HttpGet("{id}")]
+        [HttpGet("get/{id}")]
         [Authorize(Roles = "ListReinforcements")]
         public async Task<ActionResult<ReinforcementAccount>> GetReinforcement(string id)
         {

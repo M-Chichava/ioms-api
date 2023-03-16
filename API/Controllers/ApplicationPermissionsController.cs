@@ -9,7 +9,7 @@ namespace API.Controllers
 {
     public class ApplicationPermissionsController : BaseController
     {
-        [HttpGet]
+        [HttpGet("list")]
         [Authorize(Roles = "ListPermissions")]
         public async Task<IReadOnlyList<ApplicationPermission>> ListPermissions()
         {

@@ -10,18 +10,28 @@ namespace API.Controllers
 {
     public class UsersController : BaseController
     {
-        [HttpPost]
+        [HttpPost("add")]
         [Authorize(Roles = "CreateUser")]
         public async Task<ActionResult<UserDto>> CreateUser(CreateUserCommand command)
         {
             return await Mediator.Send(command);
         }
 
-        [HttpGet]
-        [Authorize(Roles = "ListUsers")]
+        [HttpGet("list")]
         public async Task<IReadOnlyList<UserDto>> ListAllUsers()
         {
             return await Mediator.Send(new ListAllUsersQuery());
+        }
+        
+        [HttpGet("current")]
+        public async Task<UserDto> GetCurrentUser()
+        {
+            return await Mediator.Send(new GetCurrentUserQuery());
+        }
+        [HttpGet("get/{id}")]
+        public async Task<UserDto> GetUser(string id)
+        {
+            return await Mediator.Send(new GetUserByIdQuery {Id = id});
         }
     }
 }

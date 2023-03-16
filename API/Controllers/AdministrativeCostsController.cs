@@ -10,20 +10,20 @@ namespace API.Controllers
 {
     public class AdministrativeCostsController : BaseController
     {
-        [HttpPost]
+        [HttpPost("add")]
         [Authorize(Roles = "AddAdministrativeCost")]
         public async Task<ActionResult<AdministrativeCostAccount>> AddAdministrativeCostAccount(CreateAdministrativeCostCommand command)
         {
             return await Mediator.Send(command);
         }
-        [HttpGet]
+        [HttpGet("list")]
         [Authorize(Roles = "ListAdministrativeCosts")]
         public async Task<IReadOnlyList<AdministrativeCostAccount>> ListAdministrativeCosts()
         {
             return await Mediator.Send(new ListAllAdministrativeCostsQuery());
         } 
         
-        [HttpGet("{id}")]
+        [HttpGet("get/{id}")]
         [Authorize(Roles = "ListAdministrativeCosts")]
         public async Task<ActionResult<AdministrativeCostAccount>> GetAdministrativeCost(string id)
         {

@@ -10,21 +10,21 @@ namespace API.Controllers
 {
     public class ApplicationRolesController : BaseController
     {
-        [HttpPost]
+        [HttpPost("add")]
         [Authorize(Roles = "AddRole")]
         public async Task<ActionResult<ApplicationRole>> AddRoles(AddRoleCommand command)
         {
             return await Mediator.Send(command);
         }
         
-        [HttpGet]
+        [HttpGet("list")]
         [Authorize(Roles = "ListRoles")]
         public async Task<IReadOnlyList<ApplicationRole>> ListRoles()
         {
             return await Mediator.Send(new ListRolesQuery());
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("remove/{id}")]
         [Authorize(Roles = "RemoveRole")]
         public async Task<ActionResult<ApplicationRole>> RemoveRole(int id)
         {

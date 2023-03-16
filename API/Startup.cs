@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Extensions;
+using API.Middleware;
 using Application.Features.Auth.Commands.RequestModels;
 using Application.Helpers;
 using Domain;
@@ -42,6 +43,15 @@ namespace API
                     f.DisableDataAnnotationsValidation = true;
                 });
             services.AddControllers();
+            services.AddCors(options =>
+                {
+                    options.AddDefaultPolicy(
+                         policy =>
+                        {
+                            policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                        });  
+                }
+            );
             services.AddMemoryCache();
             services.AddApplicationServices();
             services.AddIdentityCore<AppUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<DataContext>();
@@ -59,10 +69,12 @@ namespace API
                 app.UseSwaggerDocumention();
 
             }
-               
+            app.UseMiddleware<ReportMiddleware>(); 
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseStatusCodePagesWithReExecute("/errors/{0}");
-            app.UseCors("CorsPolicy");
             app.UseRouting();
+            app.UseCors();
+            
             app.UseAuthentication();
             app.UseAuthorization();
 
